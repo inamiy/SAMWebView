@@ -72,6 +72,7 @@
 		21C5D3BF1782827C00F8D4D1 /* SAMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C5D3AB1782825F00F8D4D1 /* SAMAppDelegate.m */; };
 		21C5D3C01782827F00F8D4D1 /* SAMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C5D3B61782826500F8D4D1 /* SAMWebView.m */; };
 		21C5D3C21782827F00F8D4D1 /* SAMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C5D3B61782826500F8D4D1 /* SAMWebView.m */; };
+		48A17FB01830AFB4004C0443 /* NSURL+SAMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A17FAF1830AFB4004C0443 /* NSURL+SAMWebView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,8 @@
 		21C5D3BA1782826500F8D4D1 /* SAMWebViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SAMWebViewTests-Info.plist"; sourceTree = "<group>"; };
 		21C5D3BB1782826500F8D4D1 /* SAMWebViewTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAMWebViewTests.h; sourceTree = "<group>"; };
 		21C5D3BC1782826500F8D4D1 /* SAMWebViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAMWebViewTests.m; sourceTree = "<group>"; };
+		48A17FAE1830AFB4004C0443 /* NSURL+SAMWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+SAMWebView.h"; sourceTree = "<group>"; };
+		48A17FAF1830AFB4004C0443 /* NSURL+SAMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+SAMWebView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +273,8 @@
 				21C5D3B61782826500F8D4D1 /* SAMWebView.m */,
 				21061782178CCBB900C1558E /* SAMWebViewController.h */,
 				21061783178CCBB900C1558E /* SAMWebViewController.m */,
+				48A17FAE1830AFB4004C0443 /* NSURL+SAMWebView.h */,
+				48A17FAF1830AFB4004C0443 /* NSURL+SAMWebView.m */,
 				21061739178CCBAD00C1558E /* Resources */,
 			);
 			path = SAMWebView;
@@ -441,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48A17FB01830AFB4004C0443 /* NSURL+SAMWebView.m in Sources */,
 				21C5D3C21782827F00F8D4D1 /* SAMWebView.m in Sources */,
 				21C5D3BF1782827C00F8D4D1 /* SAMAppDelegate.m in Sources */,
 				21C5D3BE1782827800F8D4D1 /* main.m in Sources */,

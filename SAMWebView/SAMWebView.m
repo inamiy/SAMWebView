@@ -7,6 +7,7 @@
 //
 
 #import "SAMWebView.h"
+#import "NSURL+SAMWebView.h"
 
 @interface SAMWebView ()
 @property (nonatomic, assign, readwrite, getter=isLoadingPage) BOOL loadingPage;
@@ -180,7 +181,6 @@
 		[self.delegate webViewDidLoadDOM:self];
 	}
 }
-
 
 #pragma mark - Getters
 
@@ -405,7 +405,7 @@
 	}
 
 	// Starting a new request
-	if ([[aRequest mainDocumentURL] isEqual:[self.lastRequest mainDocumentURL]] == NO) {
+	if ([[[aRequest mainDocumentURL] sam_URLByTrimmingHash] isEqual:[[self.lastRequest mainDocumentURL] sam_URLByTrimmingHash]] == NO) {
 		self.lastRequest = aRequest;
 		self.testedDOM = NO;
 
