@@ -322,6 +322,8 @@
  */
 - (void)reset;
 
+@property (nonatomic, assign) BOOL shouldTestDOMLoaded;
+
 @end
 
 

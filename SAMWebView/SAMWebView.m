@@ -23,6 +23,7 @@
 @synthesize consoleEnabled = _consoleEnabled;
 @synthesize lastRequest = _lastRequest;
 @synthesize loadingPage = _loadingPage;
+@synthesize shouldTestDOMLoaded = _shouldTestDOMLoaded;
 @synthesize shadowsHidden = _shadowsHidden;
 @synthesize webView = _webView;
 @synthesize requestCount = _requestCount;
@@ -147,6 +148,7 @@
 	self.loadingPage = NO;
 	self.shadowsHidden = NO;
 	self.consoleEnabled = NO;
+	self.shouldTestDOMLoaded = YES;
 }
 
 
@@ -425,14 +427,16 @@
 	if (self.testedDOM == NO) {
 		self.testedDOM = YES;
 
-        // The internal delegate will intercept this load and forward the event to the real delegate
-        // Crazy javascript from http://dean.edwards.name/weblog/2006/06/again
-		static NSString *testDOM = @"var self.SAMWebViewDOMLoadTimer=setInterval(function(){if(/loaded|complete/.test(document.readyState)){clearInterval(self.SAMWebViewDOMLoadTimer);location.href='x-sswebview://dom-loaded'}},10);";
-		[self stringByEvaluatingJavaScriptFromString:testDOM];
+		if (self.shouldTestDOMLoaded == YES) {
+			// The internal delegate will intercept this load and forward the event to the real delegate
+			// Crazy javascript from http://dean.edwards.name/weblog/2006/06/again
+			static NSString *testDOM = @"var self.SAMWebViewDOMLoadTimer=setInterval(function(){if(/loaded|complete/.test(document.readyState)){clearInterval(self.SAMWebViewDOMLoadTimer);location.href='x-sswebview://dom-loaded'}},10);";
+			[self stringByEvaluatingJavaScriptFromString:testDOM];
 
-		// Override console to pass messages to NSLog
-		if (self.consoleEnabled) {
-			[self stringByEvaluatingJavaScriptFromString:@"console.log=function(msg){location.href='x-sswebview://log/?'+escape(msg.toString())}"];
+			// Override console to pass messages to NSLog
+			if (self.consoleEnabled) {
+				[self stringByEvaluatingJavaScriptFromString:@"console.log=function(msg){location.href='x-sswebview://log/?'+escape(msg.toString())}"];
+			}
 		}
 	}
 
